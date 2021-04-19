@@ -1,0 +1,131 @@
+Experimental Design and Methodology:
+
+Part A: Develop Biosensor
+
+Materials 
+• 1 x NI USB-6009 DAQ (Data AcQuisition device) 
+• 4 x LM-741C operational amplifiers 
+• 4 x op-amp sockets 
+• 2 x 9 V batteries 
+• 9 x Resistors: 
+   ⇒ 6 x 1.0 kΩ 
+   ⇒ 1 x 1.5 kΩ 
+   ⇒ 1 x 2.2 kΩ 
+   ⇒ 1 x 6.8 kΩ 
+• 1 x prototyping printed circuit board or breadboard 
+• 3 x alligator clips 
+• 1 x soldering iron and wire solder 
+• 3 ft high gauge (~24) wire 
+• ~20 x patterned strip electrodes 
+-SH-SAW piezoelectric resonator because it is better suited for liquid sensing applications 
+Software Requirements
+• Windows 8 OS
+• 32-bit MATLAB R2010a or later, with additional toolboxes: 
+   ⇒ Data Acquisition 
+   ⇒ Signal Processing 
+   ⇒ Instrument Control 
+• NI-DAQmx drivers 
+• NI-DAQmx tools for MathWorks 
+Software Set-Up
+i. Install all software packages in the order listed above 
+ii. Right-click the MATLAB application icon and select Run as Administrator
+iii. In the MATLAB command window, install the adaptor for the National Instruments device with the following code:
+ >>	daqregister(‘nidaq’);
+iv. Move the downloaded files (from Calgary wiki) into the MATLAB folder (likely found in your Documents folder) 
+
+Circuit Construction 
+1. Use the circuit schematic below to map out your circuit on the prototyping board/breadboard.
+
+ 2. Put each of the components (resistors, op-amps, etc.) into their appropriate places, then solder/push them into place. 
+3. Use the high gauge wire to connect each of the components appropriately. 
+4. Cut ~30 cm lengths of wire for connections to the counter, reference, and auxiliary electrodes. Solder an alligator clip to one end of each wire, and solder the other end of each wire to the rest of the circuit. 
+5. Connect the positive terminal of one 9 V battery to the 6.8 kΩ resistors. Connect the negative terminal of the latter battery to the positive terminal of the other battery. Use the node between the batteries as your virtual ‘ground’ for the rest of the circuit. 
+6. Connect the positive terminal of the first 9 V battery to the +VEE ports of each op-amp. Connect the negative terminal of the second 9 V battery to the –Vcc ports of each op-amp 
+7. Now we must connect the 0-5 V Sawtooth waveform voltage source. In this case, the waveform source is a National Instruments device: USB-6009. Connect the 1 kΩ resistor (near the sawtooth source on the schematic) to port 13 (GND), and connect a ground wire to port 14 (AO O). 
+
+8. The NI USB-6009 is also used for measurement; connect the positive terminal of V (far right on schematic) to port 2 (AI O+) and a groundwire to port 3 (AI O-). This configuration will measure the current in solution. 
+9. Finally, we need to measure voltage between the reference and auxiliary electrodes. Find a node connected to the reference electrode, and connect that node to port 5 (AI 1+). Connect a groundwire to port 6 (AI 1-) 
+10. Your circuit is complete, and the DAQ is now properly configured. Connect the USB-6009 to your computer via USB, and proceed with setting up the electrodes. 
+11. The electrode set-up you use will vary based on the context of your experiment. Use the alligator clips to connect to each of your electrodes in whatever configuration you choose. 
+12. Run MATLAB, and enter the following code into the command window: 
+ >>	test 
+13. A prompt will ask for an experiment name, as well as the agent being detected, and the sample number. Once the fields have been filled appropriately, click ‘OK’ to proceed. 
+14.The program ‘test.m’ is now running. A real-time plot will appear, and you can watch the voltage sweep in motion. This is a plot of the current (in microamps) with respect to voltage across the reference and auxiliary electrodes. 
+15.The third sweep for every trial will be saved automatically to a .m data file, which can be accessed on the MATLAB sidebar at any time. 
+16.You have successfully constructed your very own potentiostat circuit, and a system that can be used for electrochemical detection in a biosensor! Below is a list of links to software downloads and resources that may aid you in your conquest.
+
+
+Part B: Determination of Specific Cancer Biomarkers  - Via Computational Protein-Antibody Modeling
+
+Aim/Computational Plan:
+Literature Review of Cancer Biomarkers
+Create an array of all possible antibodies of the protein - Cancer types listed as a way to screen for potential candidates using different combinations of Schiff base substitution 
+Optimize the Geometry of the array of molecules with DFT(ORCA). 
+Use Molecular Docking to identify and compare antibodies for effectiveness at binding with following proteins the following target molecules (AutoDock Vina software)
+
+Select Antibodies with the greatest binding affinity value for the experiment
+
+
+
+
+Part C: Cancer Recognition with Cell Cultures
+Purpose: To determine the accuracy of protein identification using CarC Spy biosensor compared to Baseline Data
+
+Materials:
+10 Petri Dishes with LB Broth
+Cell Cultures for the Following
+Sterile Cotton Swabs
+CarC Spy + Computer Setup
+Centrifuge
+Micropipette
+Phosphate Buffered Saline at 0.1M pH7.0 
+
+
+Procedures: 
+Prepare Cultures
+Centrifuge cell culture tubes to sediment cancerous cells 
+Measure 3 mL of cell culture through a micropipette and disperse on petri dishes
+Use Sterile Cotton Swabs and swab in a star-shaped pattern
+Set Culture on the counter to grow and prepare for experimentation
+Set up Biosensor on Petri Dish and conduct experiment for 10 minutes
+Sava Data once displayed on the PC screen
+Repeat for each biomarker
+
+Variables:
+Negative Control: Normal Cells - Baseline - no bio-receptor response
+Independent Variable: Type of Protein/Cancer
+Dependent Variable - Protein Concentrations (ng/uL - nanogram-microliter) 
+
+
+
+Part D: CTC: Circulating Tumor Cells on Model Organism, Planarian
+Concept: Use the Planarian as Model Organism to simulate the Cancer Diagnosis process in Humans.
+
+Similar to taking a blood test. CTCs or Circulating Tumor Cells are present in the blood even in the early stages of cancer, secreting biomarkers. Trying to accurately diagnose cancer through this “blood test”. Planaria is a good model organism due to its 60% gene overlap with the human genome, helping simulate the human cancer diagnosis with CarC Spy as closely as possible. Additionally, due to their fast cell proliferation and regeneration capabilities, they are the ideal model organism for 1) Decreasing the time of tumor growth and 2) able to survive the cancerous growth.
+
+Materials: 
+Planaria (5+)
+Microinjection Unit
+Centrifuge
+Micropipette
+Phosphate Buffered Saline at 0.1M pH7.0 
+4 Petri Dishes with LB Broth
+Sterile Cotton Swabs
+Microscope
+
+Procedures:
+Prepare Planaria
+Fill Microinjection needle with 3 mL of cell culture (measure with micropipette)
+Below microscope, inject culture into the gastrovascular cavity (anterior)
+Leave Planaria overnight for the tumor to grow
+Extract Planarial Blood/plasma from posterior gastrovascular cavity via microinjection needle
+Measure 3 mL and disperse on a petri dish
+Set up Biosensor on Petri Dish and conduct experiment for 10 minutes
+Sava Data once displayed on the PC screen
+Repeat for each biomarker
+
+  
+Variables:
+Independent Variable: Type of Protein/Cancer
+Dependent Variable - Protein Concentrations (ng/uL - nanogram-microliter) 
+
