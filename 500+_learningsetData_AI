@@ -1,6 +1,5 @@
-Sample Data (500 sets)
-//Rounded Data of 3 + trials -> 500 sets
-Past Data for AI-Engine (n=500)			
+
+Past Data for AI-Engine (n=558)			
 	Enviromental Data		
 Biomarker Temp 	pH	Binding Efficacy (aM)
 VGEFR	22	4	5.939564231
